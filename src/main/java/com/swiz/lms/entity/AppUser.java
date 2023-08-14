@@ -1,8 +1,7 @@
 package com.swiz.lms.entity;
 
 
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 
 import javax.persistence.*;
 
@@ -10,6 +9,9 @@ import javax.persistence.*;
 @Table(name = "AppUser")
 @Getter
 @Setter
+@Builder
+@AllArgsConstructor
+@NoArgsConstructor
 public class AppUser {
 
     @Id
