@@ -17,7 +17,6 @@ import org.springframework.test.context.junit.jupiter.SpringJUnitConfig;
 
 @ExtendWith(SpringExtension.class)
 @DataJpaTest
-//@SpringJUnitConfig(classes = {SecurityConfig.class}) // Replace with your actual configuration class if needed
 public class UserRepositoryTest {
 
     @MockBean
@@ -30,7 +29,7 @@ public class UserRepositoryTest {
         // Set other fields as needed
 
         // Here's the stubbing
-        when(userRepository.findByUsername("username")).thenReturn(mockUser);
+        when(userRepository.findByUsername("balaji")).thenReturn(mockUser);
     }
     @Test
     public void testFindByUsername() {
@@ -41,8 +40,10 @@ public class UserRepositoryTest {
                 .email("balaji@hello.com")
                 .password("hello_123")
                 .build();
+        //execute
         userRepository.save(user);
-        AppUser found = userRepository.findByUsername("username");
+        AppUser found = userRepository.findByUsername("balaji");
+        //vaidate or assert
         assertNotNull(found);
         assertEquals(user.getUsername(), found.getUsername());
     }
